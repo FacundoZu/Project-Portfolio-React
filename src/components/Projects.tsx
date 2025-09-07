@@ -1,59 +1,14 @@
 import { FaGithub } from "react-icons/fa";
+import { projects as projectsData } from "../../data/projects";
+import { Project } from "../types/index.ts";
+import { getTechnology } from "../../data/technologies.ts";
 
 export default function Projects() {
-  interface Project {
-    title: string
-    description: string
-    image: string
-    technologies: string[]
-    github: string
-  }
-  const projects: Project[] = [
-    {
-      title: "Project Alpha",
-      description: "A modern web application built with Next.js and TypeScript",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-      github: "https://github.com",
-    },
-    {
-      title: "Dashboard Pro",
-      description: "Professional dashboard with real-time data visualization",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-      technologies: ["React", "D3.js", "Firebase"],
-      github: "https://github.com",
-    },
-    {
-      title: "E-Commerce Platform",
-      description: "Full-featured e-commerce solution with payment integration",
-      image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?q=80&w=2064&auto=format&fit=crop",
-      technologies: ["Next.js", "Stripe", "PostgreSQL"],
-      github: "https://github.com",
-    },
-    {
-      title: "Project Alpha2",
-      description: "A modern web application built with Next.js and TypeScript",
-      image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-      github: "https://github.com",
-    },
-    {
-      title: "Dashboard Pro2",
-      description: "Professional dashboard with real-time data visualization",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-      technologies: ["React", "D3.js", "Firebase"],
-      github: "https://github.com",
-    },
-    {
-      title: "E-Commerce Platform2",
-      description: "Full-featured e-commerce solution with payment integration",
-      image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?q=80&w=2064&auto=format&fit=crop",
-      technologies: ["Next.js", "Stripe", "PostgreSQL"],
-      github: "https://github.com",
-    },
-  ]
+
+  const projects: Project[] = projectsData
+
   return (
-    <div className="w-full min-h-screen bg-gradient-to-b from-stone-900 to-stone-950 text-white py-16">
+    <div id="portfolio" className="w-full min-h-screen bg-gradient-to-b from-stone-900 to-stone-950 text-white py-16">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
           Proyectos Destacados
@@ -64,13 +19,14 @@ export default function Projects() {
         </p>
       </div>
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
             <div
-              key={project.title}
-              className="bg-stone-800/50 backdrop-blur-sm rounded-xl overflow-hidden hover:transform hover:scale-101 transition-all duration-200 border border-stone-700 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20"
+              key={index}
+              className="group cursor-pointer bg-stone-900/80 backdrop-blur-sm rounded-xl overflow-hidden hover:transform hover:scale-101 transition-all duration-200 border border-stone-700 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20 h-full"
+              onClick={() => window.location.href = `/project/${index}`}
             >
-              <div className="relative group">
+              <div className="relative">
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
@@ -86,21 +42,26 @@ export default function Projects() {
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 text-sm bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {project.technologies.map((tech, index) => {
+                    const technology = getTechnology(tech);
+                    return (
+                      <span
+                        key={index}
+                        className="inline-flex items-center gap-2 px-3 py-1 text-sm bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20"
+                      >
+                        {technology?.icon}
+                        {tech}
+                      </span>
+                    );
+                  })}
                 </div>
                 <div className="flex justify-end pt-2">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-stone-400 hover:text-blue-400 transition-colors"
+                    className="text-stone-400 hover:text-blue-400 transition-colors z-10"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <FaGithub className="w-7 h-7 hover:scale-110 transition-transform duration-300" />
                   </a>

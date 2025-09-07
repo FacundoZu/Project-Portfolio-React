@@ -1,13 +1,13 @@
 export default function Personal() {
     return (
-        <div className="w-full bg-gradient-to-b from-stone-850 to-stone0 text-white py-16">
+        <div className="bg-gradient-to-b from-stone-850 to-stone0 text-white py-16 mt-20">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="flex flex-col md:flex-row gap-8 items-center">
                     <section className='w-full md:w-2/6'>
                         <div className="relative group">
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                            <div className="absolute -inset-3.5 bg-gradient-to-b from-blue-500 to-purple-500 rounded-lg blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
                             <img 
-                                src="../public/perfil_default.jpg" 
+                                src="../perfil_default.jpg" 
                                 className="w-80 h-80 rounded-lg object-cover relative transform transition duration-300 hover:scale-105" 
                                 alt="Foto de perfil"
                             />
@@ -35,7 +35,7 @@ export default function Personal() {
                         </p>
                         <div className="flex gap-4 mt-8">
                             <a 
-                                href="#projects" 
+                                href="#portfolio" 
                                 className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300"
                             >
                                 Ver Proyectos

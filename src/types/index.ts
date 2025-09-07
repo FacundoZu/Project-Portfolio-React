@@ -4,4 +4,17 @@ export interface Project {
     image: string
     technologies: string[]
     github: string
+    functionalities: string[]
+}
+
+export interface Technologies {
+    name: string
+    icon: React.ReactNode
+}
+
+export interface Courses {
+    name: string
+    description: string
+    duration: string
+    certificate: string
 }

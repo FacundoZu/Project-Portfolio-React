@@ -109,7 +109,7 @@ export default function Footer() {
                 {/* Copyright */}
                 <div className="text-center text-stone-400">
                     <p>© {new Date().getFullYear()} Facundo Zuleta. Todos los derechos reservados.</p>
-                    <p className="text-sm mt-2">Desarrollado con ❤️ usando React y Tailwind CSS</p>
+                    <p className="text-sm mt-2">Desarrollado con React y Tailwind CSS</p>
                 </div>
             </div>
         </footer>

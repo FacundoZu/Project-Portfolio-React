@@ -1,8 +1,8 @@
 import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 export default function Contact() {
-    return (
-        <div className="w-full bg-stone-950 text-white py-16">
+    return ( 
+        <div id="contact" className="w-full bg-stone-950 text-white py-16">
 
             <div className="max-w-7xl mx-auto px-4">
                 <div className="bg-stone-950/20 backdrop-blur-sm rounded-xl p-8 border border-stone-700 hover:border-blue-500/50 transition-all duration-300">
