@@ -18,3 +18,11 @@ export interface Courses {
     duration: string
     certificate: string
 }
+
+export interface MoreProjects {
+    name: string
+    description: string
+    img: string
+    github: string
+    web: string
+}

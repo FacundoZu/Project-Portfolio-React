@@ -22,7 +22,7 @@ export const projects: Project[] = [
   },
   {
     title: "Quiosco",
-    description: "Professional dashboard with real-time data visualization",
+    description: "Aplicación web para gestionar pedidos de un restaurante.",
     image: "../default.jpg",
     technologies: ["Next", "TypeScript", "Tailwind CSS"],
     github: "https://github.com/FacundoZu/quiosco_next_app_router",
