@@ -8,7 +8,7 @@ export default function Projects() {
   const projects: Project[] = projectsData
 
   return (
-    <div id="portfolio" className="w-full min-h-screen bg-gradient-to-b from-stone-900 to-stone-950 text-white py-16">
+    <div id="portfolio" className="w-full min-h-screen bg-gradient-to-b from-stone-900 to-stone-950 text-white py-8">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
           Proyectos Destacados

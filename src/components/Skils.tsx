@@ -3,7 +3,7 @@ import { SiTypescript, SiJavascript, SiHtml5, SiCss3, SiExpress, SiPostgresql, S
 
 export default function Skils() {
     return (
-        <div id="skills" className="w-full bg-stone-900 text-white py-16">
+        <div id="skills" className="w-full bg-stone-900 text-white py-8">
             <div className="text-center mb-12">
                 <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
                     Habilidades Técnicas

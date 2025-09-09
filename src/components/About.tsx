@@ -2,7 +2,7 @@ import { courses } from "../../data/courses"
 
 export default function About() {
   return (
-    <div id="about" className="bg-stone-900 text-white py-16">
+    <div id="about" className="bg-stone-900 text-white py-8">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
           Sobre mí

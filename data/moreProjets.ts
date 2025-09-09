@@ -23,6 +23,13 @@ export const moreProjects: MoreProjects[] = [
         web: "https://dynamic-otter-e321b2.netlify.app/"
     },
     {
+        name: "Visita Salta",
+        description: "Forme parte de Visitas Salta, donde puedes ver un listado de los lugares turisticos de Salta, su gastronomia e historia.",
+        img: "/more-projects/visita-salta.png",
+        github: "",
+        web: "https://visita-salta.vercel.app/"
+    },
+    {
         name: "Planificador de gastos",
         description: "El proyecto permite ingresar un presupuesto inicial y agregar gastos segun su categoria, se muestra un resumen de los gastos y el saldo restante.",
         img: "/more-projects/planificador-de-gastos.png",
