@@ -14,6 +14,8 @@ export interface Technologies {
 
 export interface Courses {
     name: string
+    plataform: string
+    date: string
     description: string
     duration: string
     certificate: string

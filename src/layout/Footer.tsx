@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
     const scrollToSection = (sectionId: string) => {
@@ -29,7 +29,7 @@ export default function Footer() {
                         </h3>
                         <ul className="space-y-2">
                             <li>
-                                <button 
+                                <button
                                     onClick={() => scrollToSection('about')}
                                     className="text-stone-400 hover:text-blue-400 transition-colors"
                                 >
@@ -37,7 +37,7 @@ export default function Footer() {
                                 </button>
                             </li>
                             <li>
-                                <button 
+                                <button
                                     onClick={() => scrollToSection('skills')}
                                     className="text-stone-400 hover:text-blue-400 transition-colors"
                                 >
@@ -45,7 +45,7 @@ export default function Footer() {
                                 </button>
                             </li>
                             <li>
-                                <button 
+                                <button
                                     onClick={() => scrollToSection('projects')}
                                     className="text-stone-400 hover:text-blue-400 transition-colors"
                                 >
@@ -53,7 +53,7 @@ export default function Footer() {
                                 </button>
                             </li>
                             <li>
-                                <button 
+                                <button
                                     onClick={() => scrollToSection('contact')}
                                     className="text-stone-400 hover:text-blue-400 transition-colors"
                                 >
@@ -69,35 +69,27 @@ export default function Footer() {
                             Conectemos
                         </h3>
                         <div className="flex gap-6 justify-center">
-                            <a 
-                                href="https://github.com/tu-usuario" 
-                                target="_blank" 
+                            <a
+                                href="https://github.com/tu-usuario"
+                                target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-stone-400 hover:text-purple-400 transition-colors"
                             >
                                 <FaGithub className="w-6 h-6" />
                             </a>
-                            <a 
-                                href="https://linkedin.com/in/tu-usuario" 
-                                target="_blank" 
+                            <a
+                                href="https://linkedin.com/in/tu-usuario"
+                                target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-stone-400 hover:text-blue-400 transition-colors"
                             >
                                 <FaLinkedin className="w-6 h-6" />
                             </a>
-                            <a 
+                            <a
                                 href="mailto:facundozuleta70@gmail.com"
                                 className="text-stone-400 hover:text-red-400 transition-colors"
                             >
                                 <FaEnvelope className="w-6 h-6" />
-                            </a>
-                            <a 
-                                href="https://wa.me/543875123456"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-stone-400 hover:text-green-400 transition-colors"
-                            >
-                                <FaWhatsapp className="w-6 h-6" />
                             </a>
                         </div>
                     </div>

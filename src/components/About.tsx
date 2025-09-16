@@ -2,7 +2,7 @@ import { courses } from "../../data/courses"
 
 export default function About() {
   return (
-    <div id="about" className="bg-stone-900 text-white py-8">
+    <div id="about" className="bg-gradient-to-b from-stone-950 to-stone-900 text-white py-8">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
           Sobre mí
@@ -16,12 +16,6 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="bg-stone-950/20 backdrop-blur-sm rounded-xl p-8 border border-stone-700 hover:border-blue-500/50 transition-all duration-300">
           <div className="space-y-6">
-            <p className="text-lg text-stone-300 leading-relaxed">
-              Estoy aquí para ser tu socio en el viaje tecnológico. Si están listos para llevar su proyecto al siguiente nivel o tienen alguna consulta o pregunta sobre este, estoy ansioso por hablar más a fondo.
-            </p>
-
-            <div className="h-px bg-gradient-to-r from-blue-500/50 to-transparent"></div>
-
             <div className="space-y-8">
               <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-500">
                 Educación
@@ -45,20 +39,6 @@ export default function About() {
                     <p className="text-stone-300">Carrera: Tecnicatura Universitaria en Programación</p>
                   </div>
                 </div>
-
-                {/* Educación Secundaria */}
-                <div className="relative pl-12">
-                  <div className="absolute left-[0.075rem] w-8 h-8 rounded-full bg-purple-500/20 border-2 border-purple-500 flex items-center justify-center">
-                    <div className="w-3 h-3 rounded-full bg-purple-500"></div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <span className="text-purple-400 font-semibold">Educación Secundaria</span>
-                      <span className="text-stone-400 text-sm">feb 2015 - dic 2020</span>
-                    </div>
-                    <p className="text-stone-300">Colegio secundario N°5087, Cachi Salta, Argentina</p>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -72,12 +52,14 @@ export default function About() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {courses.map((course, index) => (
                   <div key={index} className="bg-stone-800/30 rounded-lg p-6 border border-stone-700 hover:border-green-500/50 transition-all duration-300">
-                    <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-center gap-3 mb-4 justify-between">
                       <h4 className="text-lg font-semibold text-green-400">{course.name}</h4>
+                      <p className="text-stone-300 text-sm font-semibold">{course.date}</p>
                     </div>
                     <div className="my-2">
+                      <p className="text-stone-300">{course.plataform}</p>
                       <p className="text-stone-300">{course.description}</p>
-                      <p className="text-stone-300">Duración: {course.duration}</p>
+                      <p className="text-stone-300">{course.duration}</p>
                     </div>
                     {course.certificate && (
                       <a href={course.certificate} target="_blank" className="px-3 py-1 text-sm bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20 hover:bg-blue-500/20 hover:text-blue-400 transition-all duration-300">Ver Certificado</a>

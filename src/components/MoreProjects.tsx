@@ -1,7 +1,9 @@
-import { FaArrowDown } from "react-icons/fa";
+import { FaArrowDown, FaSearchPlus } from "react-icons/fa";
 import { moreProjects as moreProjectsData } from "../../data/moreProjets"
 import type { MoreProjects } from "../types/index.ts"
 import { useState, useRef, useEffect } from "react"
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 interface ImageModalProps {
     src: string;
@@ -41,9 +43,7 @@ function ImageModal({ src, alt, isOpen, onClose }: ImageModalProps) {
                     className="absolute top-4 right-4 text-white bg-black/50 rounded-full p-2 hover:bg-black/80 transition-colors backdrop-blur-sm"
                     aria-label="Cerrar"
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    <XMarkIcon className="w-5 h-5 cursor-pointer" />
                 </button>
             </div>
         </div>
@@ -51,7 +51,7 @@ function ImageModal({ src, alt, isOpen, onClose }: ImageModalProps) {
 }
 
 export default function MoreProjects() {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
     const moreProjects: MoreProjects[] = moreProjectsData;
     const projectsRef = useRef<HTMLDivElement>(null);
@@ -66,7 +66,7 @@ export default function MoreProjects() {
     };
 
     return (
-        <div className="w-full bg-stone-950 py-8">
+        <div className="w-full bg-gradient-to-b from-stone-950 to-stone-900 py-8">
             <div className="text-center mb-8">
                 <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
                     Más Proyectos
@@ -81,7 +81,7 @@ export default function MoreProjects() {
                 <div className="flex justify-center mb-8">
                     <button
                         onClick={() => setOpen(!open)}
-                        className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:opacity-90 transition-all duration-300 font-medium text-lg flex items-center gap-2 group"
+                        className="text-white px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 text-lg flex items-center gap-2 group cursor-pointer"
                     >
                         {open ? 'Ocultar Proyectos' : 'Ver Más Proyectos'}
                         <FaArrowDown className={`size-5 transition-all duration-300 ${open ? 'rotate-180' : ''}`} />
@@ -115,9 +115,7 @@ export default function MoreProjects() {
                                             className="absolute bottom-2 right-2 bg-black/60 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/80 backdrop-blur-sm"
                                             aria-label="Ampliar imagen"
                                         >
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                                            </svg>
+                                            <FaSearchPlus className="size-5 transition-all duration-300 group-hover:rotate-360 cursor-pointer" />
                                         </button>
                                     </div>
                                 )}
@@ -134,12 +132,10 @@ export default function MoreProjects() {
                                         href={project.web}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center px-4 py-2 bg-blue-600/20 text-blue-400 rounded-lg hover:bg-blue-600/30 transition-colors border border-blue-500/30 hover:border-blue-400/50"
+                                        className="inline-flex items-center px-4 py-2 bg-blue-600/20 text-blue-400 rounded-lg hover:bg-blue-600/30 transition-colors border border-blue-500/30 hover:border-blue-400/50 cursor-pointer"
                                     >
                                         Ver Proyecto
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                        </svg>
+                                        <FaArrowUpRightFromSquare className="size-5 ml-2" />
                                     </a>
                                 </div>
                             </div>

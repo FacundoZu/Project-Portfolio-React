@@ -49,7 +49,7 @@ export default function Header() {
                             <button
                                 key={item.id}
                                 onClick={() => scrollToSection(item.id)}
-                                className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 relative group"
+                                className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 relative group cursor-pointer"
                             >
                                 {item.label}
                                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
