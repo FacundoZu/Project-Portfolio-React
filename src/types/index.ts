@@ -1,9 +1,10 @@
 export interface Project {
     title: string
     description: string
-    image: string
+    images: string[]
     technologies: string[]
     github: string
+    githubback?: string
     functionalities: string[]
 }
 

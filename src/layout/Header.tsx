@@ -1,32 +1,17 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 export default function Header() {
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const location = useLocation();
 
     const navItems = [
         { id: 'about', label: 'Sobre mí' },
-        { id: 'skills', label: 'Habilidades' },
         { id: 'portfolio', label: 'Proyectos' },
+        { id: 'skills', label: 'Habilidades' },
         { id: 'contact', label: 'Contacto' },
     ];
-
-
-    const scrollToSection = (sectionId: string) => {
-        if (location.pathname !== '/') {
-            window.location.href = `/#${sectionId}`;
-            return;
-        }
-
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-        setIsMobileMenuOpen(false);
-    };
 
     return (
         <header
@@ -46,14 +31,14 @@ export default function Header() {
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center space-x-1">
                         {navItems.map((item) => (
-                            <button
+                            <a
                                 key={item.id}
-                                onClick={() => scrollToSection(item.id)}
+                                href={`/#${item.id}`}
                                 className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 relative group cursor-pointer"
                             >
                                 {item.label}
                                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
-                            </button>
+                            </a>
                         ))}
                     </nav>
 
@@ -82,14 +67,14 @@ export default function Header() {
             >
                 <div className="w-1/2 right-4 absolute px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-stone-950/80 backdrop-blur-sm rounded-b-2xl">
                     {navItems.map((item) => (
-                        <button
+                        <a
                             key={item.id}
-                            onClick={() => scrollToSection(item.id)}
+                            href={`/#${item.id}`}
+                            onClick={() => setIsMobileMenuOpen(false)}
                             className="block w-full text-center px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white"
                         >
                             {item.label}
-                            
-                        </button>
+                        </a>
                     ))}
                 </div>
             </div>

@@ -6,6 +6,7 @@ import Contact from "../components/Contact";
 import MoreProjects from "../components/MoreProjects";
 
 export default function Home() {
+
   return (
     <div>
       <Personal />
