@@ -30,6 +30,10 @@ const technologies: Technologies[] = [
         name: "Next",
         icon: React.createElement(RiNextjsFill)
     },
+    {
+        name: "Node.js",
+        icon: React.createElement(FaNodeJs)
+    },
 ];
 
 export const getTechnology = (name: string) => {

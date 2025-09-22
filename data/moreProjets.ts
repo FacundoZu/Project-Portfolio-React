@@ -2,11 +2,11 @@ import type { MoreProjects } from "../src/types/index.ts";
 
 export const moreProjects: MoreProjects[] = [
     {
-        name: "GuitarLA",
-        description: "EL proyecto cuenta con una un carrito de compras, en el cual se pueden agregar y quitar guitarras modificando dinamicamente el precio total.",
-        img: "/more-projects/guitar-la.png",
+        name: "Cocktail",
+        description: "Buscador y generador de recetas de tragos o bebidas segun su categoria, con posibilidad de generar una receta con inteligencia artificial mediante un prompt, cuenta con lista de favoritos.",
+        img: "/more-projects/cocktail.png",
         github: "",
-        web: "https://rad-pasca-e1dc3e.netlify.app/"
+        web: "https://bebidas-ia-api-react-typescript.vercel.app/"
     },
     {
         name: "Calculadora de propinas",
@@ -58,10 +58,10 @@ export const moreProjects: MoreProjects[] = [
         web: "https://animated-pixie-f02f6b.netlify.app/"
     },
     {
-        name: "Cocktail",
-        description: "Buscador de recetas de tragos segun su categoria, cuenta con lista de favoritos.",
-        img: "/more-projects/cocktail.png",
+        name: "GuitarLA",
+        description: "EL proyecto cuenta con una un carrito de compras, en el cual se pueden agregar y quitar guitarras modificando dinamicamente el precio total.",
+        img: "/more-projects/guitar-la.png",
         github: "",
-        web: "https://effulgent-naiad-1d5e18.netlify.app/"
-    }
+        web: "https://rad-pasca-e1dc3e.netlify.app/"
+    },
 ]
