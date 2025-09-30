@@ -1,62 +1,29 @@
-import { FaArrowDown, FaSearchPlus } from "react-icons/fa";
+import { FaArrowDown, FaTimes } from "react-icons/fa";
 import { moreProjects as moreProjectsData } from "../../data/moreProjets"
 import type { MoreProjects } from "../types/index.ts"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
-import { XMarkIcon } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence } from "motion/react";
 
-interface ImageModalProps {
-  src: string;
-  alt: string;
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-function ImageModal({ src, alt, isOpen, onClose }: ImageModalProps) {
-  useEffect(() => {
-    if (isOpen) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "unset";
-    return () => { document.body.style.overflow = "unset"; };
-  }, [isOpen]);
-
-  if (!isOpen) return null;
-
-  return (
-    <div
-      className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 transition-opacity duration-300"
-      onClick={onClose}
-    >
-      <div className="relative max-w-4xl w-full max-h-[90vh] overflow-auto">
-        <img
-          src={src}
-          alt={alt}
-          className="max-w-full max-h-[85vh] object-contain"
-          onClick={(e) => e.stopPropagation()}
-        />
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-white bg-black/50 rounded-full p-2 hover:bg-black/80 transition-colors backdrop-blur-sm"
-          aria-label="Cerrar"
-        >
-          <XMarkIcon className="w-5 h-5 cursor-pointer" />
-        </button>
-      </div>
-    </div>
-  );
+interface MoreProjectsPopupProps {
+  project: MoreProjects;
+  index: number;
 }
 
 export default function MoreProjects() {
   const [open, setOpen] = useState(true);
-  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+  const [selectedProject, setSelectedProject] = useState<MoreProjectsPopupProps | null>(null);
   const moreProjects: MoreProjects[] = moreProjectsData;
 
-  const handleOpenImage = (src: string, alt: string, e: React.MouseEvent) => {
-    e.stopPropagation();
-    setSelectedImage({ src, alt });
+  const openPopup = (project: MoreProjects, index: number) => {
+    setSelectedProject({ project, index });
+    document.body.style.overflow = 'hidden';
   };
 
-  const handleCloseImage = () => setSelectedImage(null);
+  const closePopup = () => {
+    setSelectedProject(null);
+    document.body.style.overflow = 'unset';
+  };
 
   return (
     <div className="w-full bg-gradient-to-b from-stone-950 to-stone-900 py-8">
@@ -93,66 +60,112 @@ export default function MoreProjects() {
                 show: { opacity: 1, height: "auto", transition: { staggerChildren: 0.15 } }
               }}
             >
-              {moreProjects.map((project, index) => (
-                <motion.div
-                  key={index}
-                  variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    show: { opacity: 1, y: 0 }
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-stone-900/80 backdrop-blur-sm rounded-xl overflow-hidden hover:transform hover:scale-101 transition-all duration-200 border border-stone-700 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20 h-full flex flex-col"
-                >
-                  {project.img && (
-                    <div className="relative w-full h-48 overflow-hidden group">
-                      <img
-                        src={project.img}
-                        alt={project.name}
-                        className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = "none";
-                        }}
-                      />
-                      <button
-                        onClick={(e) => handleOpenImage(project.img || "", project.name, e)}
-                        className="absolute bottom-2 right-2 bg-black/60 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/80 backdrop-blur-sm"
-                        aria-label="Ampliar imagen"
-                      >
-                        <FaSearchPlus className="size-5 transition-all duration-300 group-hover:rotate-360 cursor-pointer" />
-                      </button>
+              {moreProjects.map((project, index) => {
+                return (
+                  <motion.div
+                    key={index}
+                    onClick={() => openPopup(project, index)}
+                    layoutId={`project-${index}`}
+                    whileHover={{ scale: 1.02 }}
+                    variants={{
+                      hidden: { opacity: 0, y: 30 },
+                      show: { opacity: 1, y: 0 }
+                    }}
+                    className="bg-stone-900/80 backdrop-blur-sm rounded-xl overflow-hidden hover:transform border border-stone-700 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20 h-full flex flex-col cursor-pointer"
+                  >
+                    {project.img && (
+                      <div className="relative w-full h-48 overflow-hidden group">
+                        <img
+                          src={project.img}
+                          alt={project.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = "none";
+                          }}
+                        />
+                      </div>
+                    )}
+                    <div className="p-6 flex-grow">
+                      <h3 className="text-2xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                        {project.name}
+                      </h3>
+                      <p className="text-stone-300 mb-6 line-clamp-3">{project.description}</p>
                     </div>
-                  )}
-                  <div className="p-6 flex-grow">
-                    <h3 className="text-2xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-                      {project.name}
-                    </h3>
-                    <p className="text-stone-300 mb-6 line-clamp-3">{project.description}</p>
+                    <div className="p-6 pt-0 mt-auto">
+                      <a
+                        href={project.web}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-blue-600/20 text-blue-400 rounded-lg hover:bg-blue-600/30 transition-colors border border-blue-500/30 hover:border-blue-400/50 cursor-pointer"
+                      >
+                        Ver Proyecto
+                        <FaArrowUpRightFromSquare className="size-5 ml-2" />
+                      </a>
+                    </div>
+                  </motion.div>
+                )
+              })}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      <AnimatePresence>
+        {selectedProject && (
+          <div
+            className="fixed inset-0 p-4 z-50 flex items-center justify-center bg-black/50"
+            onClick={closePopup}
+          >
+            <motion.div
+              className="relative bg-stone-900 w-full max-w-full sm:max-w-2xl lg:max-w-6xl max-h-[90vh] rounded-lg sm:rounded-xl shadow-2xl"
+              layoutId={`project-${selectedProject.index}`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="absolute top-4 right-4 z-10 bg-white hover:bg-stone-300 text-gray-700 hover:text-gray-900 rounded-full p-2 shadow-lg"
+                onClick={closePopup}
+              >
+                <FaTimes className="w-5 h-5" />
+              </button>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+                <div className="relative h-48 sm:h-64 md:h-full">
+                  <img
+                    className="w-full h-full object-cover aspect-video rounded-t-lg md:rounded-l-lg md:rounded-tr-none z-40"
+                    src={selectedProject.project.img}
+                    alt={selectedProject.project.name}
+                  />
+                </div>
+                <div className='flex flex-col justify-between p-4'>
+                  <h2 className="text-2xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                    {selectedProject.project.name}
+                  </h2>
+
+                  <div
+                    className="text-gray-600"
+                  >
+                    <p className="text-stone-300 line-clamp-3">
+                      {selectedProject.project.description}
+                    </p>
                   </div>
-                  <div className="p-6 pt-0 mt-auto">
+                  <div className="mt-auto">
                     <a
-                      href={project.web}
+                      href={selectedProject.project.web}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 py-2 bg-blue-600/20 text-blue-400 rounded-lg hover:bg-blue-600/30 transition-colors border border-blue-500/30 hover:border-blue-400/50 cursor-pointer"
+                      className="inline-flex items-center px-4 py-2 mt-4 bg-blue-600/20 text-blue-400 rounded-lg hover:bg-blue-600/30 transition-colors border border-blue-500/30 hover:border-blue-400/50 cursor-pointer"
                     >
                       Ver Proyecto
                       <FaArrowUpRightFromSquare className="size-5 ml-2" />
                     </a>
                   </div>
-                </motion.div>
-              ))}
+                </div>
+              </div>
             </motion.div>
-          )}
-        </AnimatePresence>
-
-        <ImageModal
-          src={selectedImage?.src || ""}
-          alt={selectedImage?.alt || ""}
-          isOpen={!!selectedImage}
-          onClose={handleCloseImage}
-        />
-      </div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
