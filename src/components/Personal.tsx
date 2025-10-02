@@ -4,7 +4,7 @@ export default function Personal() {
   return (
     <div className=" text-white py-16 mt-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="flex flex-col md:flex-row gap-8 items-center"
           initial="hidden"
           whileInView="visible"
@@ -75,12 +75,42 @@ export default function Personal() {
               transition={{ duration: 1 }}
             >
               ¡Hola! Soy{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+              <motion.span
+                className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500"
+                initial={{
+                  opacity: 0,
+                  filter: "blur(10px)"
+                }}
+                animate={{
+                  opacity: 1,
+                  filter: "blur(0px)"
+                }}
+                transition={{
+                  delay: 0.5,
+                  duration: 0.8,
+                  ease: "easeOut"
+                }}
+              >
                 Facundo Zuleta
-              </span>, un <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+              </motion.span>, un <br />
+              <motion.span
+                className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500"
+                initial={{
+                  opacity: 0,
+                  filter: "blur(10px)"
+                }}
+                animate={{
+                  opacity: 1,
+                  filter: "blur(0px)"
+                }}
+                transition={{
+                  delay: 0.5,
+                  duration: 0.8,
+                  ease: "easeOut"
+                }}
+              >
                 Desarrollador Web Full Stack
-              </span>{" "}
+              </motion.span>{" "}
               de Salta, Argentina.
             </motion.h2>
 
