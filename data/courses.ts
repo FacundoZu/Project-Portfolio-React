@@ -3,7 +3,7 @@ import type { Courses } from "../src/types/index.ts";
 export const courses: Courses[] = [
     {
         name: "Desarrollador web fullstack",
-        plataform: "Fundación Pescar, Educación IT",
+        plataform: "Fundación Pescar, fundacion Karuna, L'oreal, Educación IT",
         date: "Julio 2025 - presente",
         description: "",
         duration: "Formación interpersonal 81 horas. Formación técnica 220 horas.",
