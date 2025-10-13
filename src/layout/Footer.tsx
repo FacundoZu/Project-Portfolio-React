@@ -1,6 +1,11 @@
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { useState } from "react";
+import { FaGithub, FaLinkedin, FaEnvelope, FaCheck } from "react-icons/fa";
+import { motion } from "motion/react"
 
 export default function Footer() {
+    const [copiado, setCopiado] = useState(false);
+    const email = "facundozuleta70@gmail.com";
+
     const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -8,11 +13,16 @@ export default function Footer() {
         }
     };
 
+    const handleCopyClick = () => {
+        navigator.clipboard.writeText(email);
+        setCopiado(true);
+        setTimeout(() => setCopiado(false), 2000);
+    };
+
     return (
         <footer className="w-full bg-stone-950 text-white">
             <div className="max-w-7xl mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    {/* Información Personal */}
                     <div className="space-y-4 text-center">
                         <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
                             Facundo Zuleta
@@ -22,7 +32,6 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    {/* Enlaces Rápidos */}
                     <div className="space-y-4 text-center">
                         <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
                             Enlaces Rápidos
@@ -63,42 +72,70 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Redes Sociales */}
                     <div className="space-y-4 text-center">
                         <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
                             Conectemos
                         </h3>
                         <div className="flex gap-6 justify-center">
-                            <a
-                                href="https://github.com/tu-usuario"
+                            <motion.a
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                                href="https://github.com/FacundoZu"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-stone-400 hover:text-purple-400 transition-colors"
                             >
                                 <FaGithub className="w-6 h-6" />
-                            </a>
-                            <a
-                                href="https://linkedin.com/in/tu-usuario"
+                            </motion.a>
+                            <motion.a
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                                href="https://www.linkedin.com/in/facundo-zuleta/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-stone-400 hover:text-blue-400 transition-colors"
                             >
                                 <FaLinkedin className="w-6 h-6" />
-                            </a>
-                            <a
-                                href="mailto:facundozuleta70@gmail.com"
-                                className="text-stone-400 hover:text-red-400 transition-colors"
+                            </motion.a>
+                            <motion.button
+                                onClick={handleCopyClick}
+                                className="relative text-stone-400 hover:text-red-400 transition-colors flex items-center justify-center rounded-full"
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                                aria-label="Copiar correo al portapapeles"
                             >
-                                <FaEnvelope className="w-6 h-6" />
-                            </a>
+                                <motion.div
+                                    key={copiado ? "check" : "envelope"}
+                                    initial={{ opacity: 0, scale: 0.5 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.5 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    {copiado ? (
+                                        <FaCheck className="w-6 h-6 text-green-500" />
+                                    ) : (
+                                        <FaEnvelope className="w-6 h-6" />
+                                    )}
+                                </motion.div>
+
+                                {copiado && (
+                                    <motion.span
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 10 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="absolute -top-8 left-1/2 -translate-x-1/2 bg-neutral-800 text-white text-xs rounded py-1 px-2 whitespace-nowrap z-10"
+                                    >
+                                        ¡Correo copiado!
+                                    </motion.span>
+                                )}
+                            </motion.button>
                         </div>
                     </div>
                 </div>
 
-                {/* Línea divisoria */}
                 <div className="h-px bg-gradient-to-r from-transparent via-stone-700 to-transparent my-12"></div>
 
-                {/* Copyright */}
                 <div className="text-center text-stone-400">
                     <p>© {new Date().getFullYear()} Facundo Zuleta. Todos los derechos reservados.</p>
                     <p className="text-sm mt-2">Desarrollado con React y Tailwind CSS</p>
