@@ -29,18 +29,6 @@ export const projects: Project[] = [
       "Interfaz moderna, intuitiva y completamente responsiva."
     ],
   },
-  // {
-  //   title: "Quiosco",
-  //   description: "Aplicación web para gestionar pedidos de un restaurante.",
-  //   image: "../default.jpg",
-  //   technologies: ["Next", "TypeScript", "Tailwind CSS"],
-  //   github: "https://github.com/FacundoZu/quiosco_next_app_router",
-  //   functionalities: [
-  //     "Gestión de tareas y proyectos",
-  //     "Autenticación segura de usuarios",
-  //     "Interfaz de usuario intuitiva y responsiva",
-  //   ],
-  // },
   {
     "title": "Camping Cachi",
     "description": "Plataforma web completa para la gestión de un camping, permitiendo administrar reservas de cabañas, usuarios, servicios y eventos. Incluye un dashboard intuitivo y responsivo que facilita el control de todas las operaciones y mejora la experiencia de los visitantes.",
@@ -66,18 +54,22 @@ export const projects: Project[] = [
     "github": "https://github.com/FacundoZu/camping-mern-frontend",
     "githubback": "https://github.com/FacundoZu/camping-mern-backend",
     "functionalities": [
-      "Registro y autenticación segura de usuarios",
-      "Inicio de sesión con Google",
-      "Recuperación de contraseña",
-      "Gestión completa de reservas, cabañas y usuarios",
-      "Confirmación de reserva y envio de ticket via email",
-      "Calendario visual de reservas, con fechas ocupadas visibles",
-      "Administración de servicios, eventos y preguntas frecuentes",
-      "Dashboard intuitivo y responsivo donde se maneja la administración de usuarios, reservas, cabañas, servicios, eventos y preguntas frecuentes",
-      "Subida de imagens en la nube, de forma automática",
-      "Formulario de contacto y consultas con envio de email",
-      "Sistema de calificación y comentarios de usuarios",
-      "Generación de estadísticas para el camping"
+      "Registro y autenticación segura de usuarios.",
+      "Inicio de sesión con Google.",
+      "Recuperación de contraseña.",
+      "Gestión completa de cabañas, servicios, eventos, cupones, preguntas frecuentes y usuarios.",
+      "Confirmación de reserva y envio de ticket via email.",
+      "Posibilidad de realizar reservas sin autenticación.",
+      "Calendario visual de reservas, con fechas ocupadas visibles.",
+      "Cupones para descuentos en reservas.",
+      "Dashboard intuitivo donde se maneja la administración de usuarios, cabañas, servicios, eventos, cupones, preguntas frecuentes y cupones.",
+      "Subida de imagens en la nube, de forma automática.",
+      "Formulario de contacto y consultas con envio de email.",
+      "Sistema de calificación y comentarios de usuarios.",
+      "Generación de estadísticas para el camping.",
+      "Interfaz moderna, intuitiva y completamente responsiva.",
+      "Posibilidad de generar reportes en PDF.",
+      "Generación automatica de resumen de comentarios para cada cabaña, con inteligencia artificial."
     ]
   },
 ]
