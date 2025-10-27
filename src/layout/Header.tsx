@@ -15,20 +15,18 @@ export default function Header() {
 
     return (
         <header
-            className={"fixed w-full z-50 transition-all px-2 duration-300 top-2"}
+            className="fixed w-full z-50 transition-all px-2 duration-300 top-2"
         >
-            <div className="max-w-4/5 mx-auto px-4 sm:px-8 bg-stone-950/80 backdrop-blur-sm rounded-2xl">
+            <div className="max-w-7xl mx-auto px-4 sm:px-8 bg-bg-100/50 backdrop-blur-sm rounded-2xl">
                 <div className="flex justify-between items-center h-16 md:h-20">
-                    {/* Logo */}
                     <Link
                         to="/"
-                        className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+                        className="text-2xl font-bold bg-linear-to-r from-primary-100 to-primary-200 bg-clip-text text-transparent hover:scale-105 transition-all cursor-pointer"
                         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     >
                         FZ
                     </Link>
 
-                    {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center space-x-1">
                         {navItems.map((item) => (
                             <a
@@ -37,7 +35,7 @@ export default function Header() {
                                 className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 relative group cursor-pointer"
                             >
                                 {item.label}
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
+                                <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-linear-to-r from-primary-100 to-primary-200 transition-all duration-300 group-hover:w-full"></span>
                             </a>
                         ))}
                     </nav>
@@ -65,7 +63,7 @@ export default function Header() {
                 className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isMobileMenuOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
                     }`}
             >
-                <div className="w-1/2 right-4 absolute px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-stone-950/80 backdrop-blur-sm rounded-b-2xl">
+                <div className="w-1/2 right-4 absolute px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-bg-100/50 backdrop-blur-sm rounded-b-2xl">
                     {navItems.map((item) => (
                         <a
                             key={item.id}
