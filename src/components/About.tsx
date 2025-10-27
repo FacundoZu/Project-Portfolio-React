@@ -8,7 +8,6 @@ export default function About() {
       id="about"
       className="bg-gradient-to-b from-stone-950 to-stone-900 text-white py-8"
     >
-      {/* Encabezado */}
       <motion.div
         className="text-center mb-12"
         initial={{ opacity: 0, y: 40 }}
@@ -42,7 +41,6 @@ export default function About() {
           }}
         >
           <div className="space-y-6">
-            {/* Educación */}
             <motion.div
               className="space-y-8"
               variants={{
@@ -55,7 +53,6 @@ export default function About() {
               </h3>
 
               <div className="relative">
-                {/* Línea vertical */}
                 <motion.div
                   className="absolute left-[1rem] top-[1rem] bottom-0 w-0.5 bg-gradient-to-b from-blue-500/50 to-purple-500/50 origin-top"
                   initial={{ scaleY: 0 }}
@@ -63,7 +60,6 @@ export default function About() {
                   transition={{ duration: 1, ease: "easeInOut" }}
                 ></motion.div>
 
-                {/* Estudio Universitario */}
                 <motion.div
                   className="relative pl-12 pb-8"
                   initial={{ opacity: 0}}
@@ -103,7 +99,6 @@ export default function About() {
 
             <div className="h-px bg-gradient-to-r from-blue-500/50 to-transparent"></div>
 
-            {/* Cursos */}
             <motion.div
               className="space-y-8"
               variants={{
@@ -155,7 +150,6 @@ export default function About() {
 
             <div className="h-px bg-gradient-to-r from-blue-500/50 to-transparent"></div>
 
-            {/* Desarrollo profesional */}
             <motion.div
               className="space-y-4"
               variants={{
