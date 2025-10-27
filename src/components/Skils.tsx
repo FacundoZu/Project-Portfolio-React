@@ -49,7 +49,7 @@ export default function Skills() {
   ];
 
   return (
-    <div id="skills" className="w-full text-white py-8">
+    <div id="skills" className="w-full text-white py-16">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-linear-to-r from-primary-100 to-primary-200">
           Habilidades Técnicas

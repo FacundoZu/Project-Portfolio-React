@@ -26,7 +26,7 @@ export default function MoreProjects() {
   };
 
   return (
-    <div className="w-full py-8">
+    <div className="w-full pb-16">
       <div className="text-center mb-8">
         <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-linear-to-r from-primary-100 to-primary-200">
           Más Proyectos

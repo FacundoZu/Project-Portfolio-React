@@ -18,7 +18,7 @@ export default function Projects() {
   return (
     <div
       id="portfolio"
-      className="w-full min-h-screen text-white py-16"
+      className="w-full min-h-screen text-white pt-16"
     >
       <motion.div
         className="text-center mb-12"
