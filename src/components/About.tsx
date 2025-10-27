@@ -97,7 +97,7 @@ export default function About() {
               </div>
             </motion.div>
 
-            <div className="h-px bg-linear-to-r from-primary-100/50 to-transparent"></div>
+            <div className="h-px bg-linear-to-r from-transparent to-primary-100/50"></div>
 
             <motion.div
               className="space-y-8"
