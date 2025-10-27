@@ -49,12 +49,12 @@ export default function Skills() {
   ];
 
   return (
-    <div id="skills" className="w-full bg-stone-900 text-white py-8">
+    <div id="skills" className="w-full text-white py-8">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+        <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-linear-to-r from-primary-100 to-primary-200">
           Habilidades Técnicas
         </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-4 rounded-full"></div>
+        <div className="w-24 h-1 bg-linear-to-r from-primary-100 to-primary-200 mx-auto mt-4 rounded-full"></div>
         <p className="text-stone-400 mt-4 max-w-2xl mx-auto">
           Tecnologías y herramientas que utilizo para crear soluciones digitales
         </p>
@@ -67,22 +67,22 @@ export default function Skills() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: idx * 0.2 }}
-            className={`bg-stone-950/20 backdrop-blur-sm rounded-xl p-6 transition-all duration-300 border border-stone-700 hover:border-${category.colorFrom.replace('from-', '')}/50 hover:shadow-2xl hover:shadow-${category.colorFrom.replace('from-', '')}/20`}
+            transition={{ duration: 0.4, delay: idx * 0.1 }}
+            className={`bg-stone-950/20 backdrop-blur-sm rounded-xl p-6 border border-bg-200/50`}
           >
             <div className="flex items-center gap-3 mb-6">
               {category.icon}
-              <h3 className={`text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${category.colorFrom} ${category.colorTo}`}>
+              <h3 className={`text-xl font-bold bg-clip-text text-transparent bg-linear-to-r ${category.colorFrom} ${category.colorTo}`}>
                 {category.title}
               </h3>
-              <div className={`h-px flex-1 bg-gradient-to-r ${category.colorFrom}/50 to-transparent`}></div>
+              <div className={`h-px flex-1 bg-linear-to-r ${category.colorFrom}/50 to-transparent`}></div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {category.skills.map((skill, i) => (
                 <motion.div
                   key={i}
-                  whileHover={{ scale: 1.05 }}
-                  className="flex items-center gap-3 p-3 rounded-lg bg-stone-800/50 hover:bg-blue-500/10 transition-all duration-300"
+                  whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                  className="flex items-center gap-3 p-3 rounded-lg cursor-default"
                 >
                   {skill.icon}
                   <div>
