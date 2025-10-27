@@ -26,12 +26,12 @@ export default function MoreProjects() {
   };
 
   return (
-    <div className="w-full bg-gradient-to-b from-stone-950 to-stone-900 py-8">
+    <div className="w-full py-8">
       <div className="text-center mb-8">
-        <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+        <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-linear-to-r from-primary-100 to-primary-200">
           Más Proyectos
         </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-4 rounded-full"></div>
+        <div className="w-24 h-1 bg-linear-to-r from-primary-100 to-primary-200 mx-auto mt-4 rounded-full"></div>
         <p className="text-stone-400 mt-4 max-w-2xl mx-auto">
           Descubre otros proyectos con los que he aprendido
         </p>
@@ -41,7 +41,7 @@ export default function MoreProjects() {
         <div className="flex justify-center mb-8">
           <button
             onClick={() => setOpen(!open)}
-            className="text-white px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 text-lg flex items-center gap-2 group cursor-pointer"
+            className="btn-primary flex items-center gap-2 text-white"
           >
             {open ? "Ocultar Proyectos" : "Ver Más Proyectos"}
             <FaArrowDown className={`size-5 transition-all duration-300 ${open ? "rotate-180" : ""}`} />
@@ -71,7 +71,7 @@ export default function MoreProjects() {
                       hidden: { opacity: 0, y: 30 },
                       show: { opacity: 1, y: 0 }
                     }}
-                    className="bg-stone-900/80 backdrop-blur-sm rounded-xl overflow-hidden hover:transform border border-stone-700 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20 h-full flex flex-col cursor-pointer"
+                    className="bg-bg-200/10 backdrop-blur-sm rounded-xl overflow-hidden hover:transform hover:shadow-lg hover:shadow-primary-100/20 h-full flex flex-col cursor-pointer"
                   >
                     {project.img && (
                       <div className="relative w-full h-48 overflow-hidden group">
@@ -86,8 +86,8 @@ export default function MoreProjects() {
                         />
                       </div>
                     )}
-                    <div className="p-6 flex-grow">
-                      <h3 className="text-2xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                    <div className="p-6 grow">
+                      <h3 className="text-2xl font-bold mb-3 bg-clip-text text-transparent bg-linear-to-r from-primary-100 to-primary-200">
                         {project.name}
                       </h3>
                       <p className="text-stone-300 mb-6 line-clamp-3">{project.description}</p>
@@ -97,7 +97,7 @@ export default function MoreProjects() {
                         href={project.web}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-4 py-2 bg-blue-600/20 text-blue-400 rounded-lg hover:bg-blue-600/30 transition-colors border border-blue-500/30 hover:border-blue-400/50 cursor-pointer"
+                        className="btn-project-link"
                       >
                         Ver Proyecto
                         <FaArrowUpRightFromSquare className="size-5 ml-2" />
@@ -138,7 +138,7 @@ export default function MoreProjects() {
                   />
                 </div>
                 <div className='flex flex-col justify-between p-4'>
-                  <h2 className="text-2xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                  <h2 className="text-2xl font-bold mb-3 bg-clip-text text-transparent bg-linear-to-r from-primary-100 to-primary-200">
                     {selectedProject.project.name}
                   </h2>
 

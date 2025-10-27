@@ -33,3 +33,7 @@
 .btn-secondary-accent {
     @apply font-medium transition-all duration-100 text-accent-100 hover:text-accent-200
 }
+
+.btn-project-link {
+    @apply inline-flex items-center font-medium text-accent-100 rounded-lg cursor-pointer hover:text-accent-200 transition-colors duration-100
+}
