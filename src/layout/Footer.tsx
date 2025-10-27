@@ -24,7 +24,7 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     <div className="space-y-4 text-center">
-                        <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                        <h3 className="text-xl font-bold bg-clip-text text-transparent bg-linear-to-r from-primary-100 to-primary-200">
                             Facundo Zuleta
                         </h3>
                         <p className="text-stone-400">
@@ -33,7 +33,7 @@ export default function Footer() {
                     </div>
 
                     <div className="space-y-4 text-center">
-                        <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                        <h3 className="text-xl font-bold bg-clip-text text-transparent bg-linear-to-r from-primary-100 to-primary-200">
                             Enlaces Rápidos
                         </h3>
                         <ul className="space-y-2">
@@ -73,7 +73,7 @@ export default function Footer() {
                     </div>
 
                     <div className="space-y-4 text-center">
-                        <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                        <h3 className="text-xl font-bold bg-clip-text text-transparent bg-linear-to-r from-primary-100 to-primary-200">
                             Conectemos
                         </h3>
                         <div className="flex gap-6 justify-center">
@@ -134,7 +134,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="h-px bg-gradient-to-r from-transparent via-stone-700 to-transparent my-12"></div>
+                <div className="h-px bg-linear-to-r from-transparent via-stone-700 to-transparent my-12"></div>
 
                 <div className="text-center text-stone-400">
                     <p>© {new Date().getFullYear()} Facundo Zuleta. Todos los derechos reservados.</p>
