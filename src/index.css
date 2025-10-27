@@ -4,13 +4,13 @@
     --color-primary-100: #0085ff;
     --color-primary-200: #69b4ff;
     --color-primary-300: #e0ffff;
-    --color-accent-100: #006fff;
-    --color-accent-200: #e1ffff;
+    --color-accent-100: #2ed8cd;
+    --color-accent-200: #5beddf;
     --color-text-100: #FFFFFF;
     --text-200: #9e9e9e;
-    --bg-100: #1E1E1E;
-    --bg-200: #2d2d2d;
-    --bg-300: #454545;
+    --color-bg-100: #121212;
+    --color-bg-200: #2d2d2d;
+    --color-bg-300: #454545;
 
 }
 
@@ -24,4 +24,12 @@
 
 .btn-secondary {
     @apply px-6 py-3 border border-stone-600 rounded-lg font-medium transition-all duration-100 hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-primary-100/50 hover:border-primary-200
+}
+
+.btn-primary-accent {
+    @apply px-6 py-3 bg-gradient-to-r from-accent-100 to-accent-200 rounded-lg font-medium transition-all duration-100 hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-primary-100/50;
+}
+
+.btn-secondary-accent {
+    @apply font-medium transition-all duration-100 text-accent-100 hover:text-accent-200
 }
