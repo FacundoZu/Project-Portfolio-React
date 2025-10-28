@@ -45,9 +45,9 @@ export default function Contact() {
                     <h3 className="mb-6 text-2xl inline-block font-bold bg-clip-text text-transparent bg-linear-to-r from-blue-400 to-blue-500">
                         Información de Contacto
                     </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8">
 
-                        <div className="space-y-6">
+                        <div>
                             <div className="space-y-4">
                                 <motion.a
                                     onClick={handleCopyClick}
