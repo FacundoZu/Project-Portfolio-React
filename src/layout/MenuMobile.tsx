@@ -1,6 +1,3 @@
-import { useEffect, useState } from "react";
-
-
 interface mobileMenuProps {
     isMobileMenuOpen: boolean,
     isMobileMenuActive: boolean,
