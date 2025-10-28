@@ -40,7 +40,6 @@ export default function Header() {
                         ))}
                     </nav>
 
-                    {/* Mobile menu button */}
                     <div className="md:hidden flex items-center">
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -58,12 +57,11 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Mobile menu */}
             <div
-                className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isMobileMenuOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
+                className={`origin-top-right ${isMobileMenuOpen ? 'animate-mobileMenu' : 'animate-mobileMenuClose'
                     }`}
             >
-                <div className="w-1/2 right-4 absolute px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-bg-100/50 backdrop-blur-sm rounded-b-2xl">
+                <div className="w-1/2 right-0 absolute px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-bg-100/50 backdrop-blur-sm rounded-b-2xl">
                     {navItems.map((item) => (
                         <a
                             key={item.id}
