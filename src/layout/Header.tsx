@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import MenuMobile from './MenuMobile';
 
 export default function Header() {
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isMobileMenuActive, setIsMobileMenuActive] = useState(false);
 
     const navItems = [
         { id: 'about', label: 'Sobre mí' },
@@ -13,11 +15,20 @@ export default function Header() {
         { id: 'contact', label: 'Contacto' },
     ];
 
+    const handleMobileMenuClick = () => {
+        if (isMobileMenuActive) {
+            setIsMobileMenuOpen(!isMobileMenuOpen);
+        } else {
+            setIsMobileMenuOpen(true);
+            setIsMobileMenuActive(true);
+        }
+    };
+
     return (
         <header
             className="fixed w-full z-50 transition-all px-2 duration-300 top-2"
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-8 bg-bg-100/50 backdrop-blur-sm rounded-2xl">
+            <div className={`max-w-7xl mx-auto px-4 sm:px-8 bg-bg-100/50 backdrop-blur-sm ${isMobileMenuOpen ? 'rounded-l-2xl rounded-t-2xl' : 'rounded-2xl'}`}>
                 <div className="flex justify-between items-center h-16 md:h-20">
                     <Link
                         to="/"
@@ -42,7 +53,7 @@ export default function Header() {
 
                     <div className="md:hidden flex items-center">
                         <button
-                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            onClick={handleMobileMenuClick}
                             className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
                             aria-expanded="false"
                         >
@@ -57,23 +68,8 @@ export default function Header() {
                 </div>
             </div>
 
-            <div
-                className={`origin-top-right ${isMobileMenuOpen ? 'animate-mobileMenu' : 'animate-mobileMenuClose'
-                    }`}
-            >
-                <div className="w-1/2 right-0 absolute px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-bg-100/50 backdrop-blur-sm rounded-b-2xl">
-                    {navItems.map((item) => (
-                        <a
-                            key={item.id}
-                            href={`/#${item.id}`}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="block w-full text-center px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white"
-                        >
-                            {item.label}
-                        </a>
-                    ))}
-                </div>
-            </div>
+            <MenuMobile isMobileMenuOpen={isMobileMenuOpen} isMobileMenuActive={isMobileMenuActive} setIsMobileMenuOpen={setIsMobileMenuOpen} navItems={navItems} />
+
         </header>
     );
 }
