@@ -11,7 +11,6 @@ interface CustomArrowProps {
     onClick?: () => void;
 }
 
-// Componente para flecha anterior
 const CustomPrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => {
     return (
         <button
@@ -24,7 +23,6 @@ const CustomPrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => {
     );
 };
 
-// Componente para flecha siguiente
 const CustomNextArrow: React.FC<CustomArrowProps> = ({ onClick }) => {
     return (
         <button
@@ -60,7 +58,7 @@ export default function ProjectDetails() {
                         >
                             <ArrowLeftIcon className="w-5 h-5 mr-2 text-white" />
                             Volver a proyectos
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-primary-100 to-primary-200 transition-all duration-300 group-hover:w-full"></span>
                         </Link>
                     </div>
                 </div>
@@ -68,7 +66,6 @@ export default function ProjectDetails() {
         )
     }
 
-    // Configuración del carrusel con TypeScript
     const settings = {
         infinite: true,
         slidesToShow: 1,
@@ -83,13 +80,13 @@ export default function ProjectDetails() {
     };
 
     return (
-        <div className="mt-28 py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto rounded-xl p-6 border border-stone-700 bg-stone-950">
-            <div className="shadow-xl rounded-lg">
+        <div className="mt-28 py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto rounded-xl p-6 bg-bg-200/20">
+            <div className="">
                 <div className="fixed inset-0 pointer-events-none">
-                    {[...Array(50)].map((_, i) => (
+                    {[...Array(50)].map((_, idx) => (
                         <motion.div
-                            key={i}
-                            className="absolute w-2 h-2 bg-blue-500/30 rounded-full"
+                            key={idx}
+                            className="absolute w-2 h-2 bg-primary-100/20 rounded-full"
                             style={{
                                 left: `${Math.random() * 100}%`,
                                 top: `${Math.random() * 100}%`,
@@ -106,12 +103,10 @@ export default function ProjectDetails() {
                         />
                     ))}
                 </div>
-                {/* Image Carousel */}
                 <div className="relative mb-16 bg-gray-900/50 rounded-lg overflow-hidden">
                     <Slider {...settings}>
                         {project.images.map((img, idx) => (
-
-                            <div className="relative h-80 md:h-96 w-full bg-gradient-to-br from-gray-800 to-gray-900">
+                            <div key={idx} className="relative h-80 md:h-96 w-full bg-linear-to-br from-gray-800 to-gray-900">
                                 <img
                                     src={img}
                                     alt={`${project.title} - ${img}`}
@@ -121,7 +116,6 @@ export default function ProjectDetails() {
                                         target.src = '/default/placeholder.png';
                                     }}
                                 />
-                                {/* Overlay con número de imagen */}
                                 <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm font-medium">
                                     {idx + 1} / {project.images.length}
                                 </div>
@@ -130,9 +124,8 @@ export default function ProjectDetails() {
                     </Slider>
                 </div>
 
-                {/* Project Details */}
                 <div className="p-6 md:p-8">
-                    <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
+                    <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-linear-to-r from-primary-100 to-primary-200 mb-4">
                         {project.title}
                     </h1>
 
@@ -143,12 +136,12 @@ export default function ProjectDetails() {
                     <div className="mt-6">
                         <h2 className="text-sm font-medium text-stone-400 mb-3">Tecnologías utilizadas</h2>
                         <div className="flex flex-wrap gap-2">
-                            {project.technologies.map((tech: string, index: number) => {
+                            {project.technologies.map((tech: string) => {
                                 const technology = getTechnology(tech);
                                 return (
                                     <span
-                                        key={index}
-                                        className="inline-flex items-center gap-2 px-3 py-2 text-sm bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20 hover:bg-blue-500/20 shadow-blue-500/20 shadow-md transition-colors duration-200 cursor-default"
+                                        key={tech}
+                                        className="tecnology"
                                     >
                                         {technology?.icon}
                                         {tech}
@@ -158,15 +151,27 @@ export default function ProjectDetails() {
                         </div>
                     </div>
 
+                    <div className="mt-8 pt-6 border-t border-stone-700">
+                        <h3 className="text-sm font-medium text-stone-400 mb-4">Características principales</h3>
+                        <ul className="space-y-3">
+                            {project.functionalities.map((func: string) => (
+                                <li key={func} className="flex items-start">
+                                    <CheckIcon className="w-5 h-5 text-green-400 mr-3 mt-0.5 shrink-0" />
+                                    <span className="text-stone-300">{func}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
                     <div className="mt-8 flex flex-col items-center sm:flex-row gap-4">
-                        <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                        <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-linear-to-r from-primary-100 to-primary-200">
                             Ver en GitHub
                         </h1>
                         <a
                             href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex justify-center items-center px-6 py-3 text-base font-medium rounded-lg shadow-sm text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-800"
+                            className="btn-primary flex items-center text-primary-300"
                         >
                             <CodeBracketIcon className="w-5 h-5 mr-2" />
                             Frontend
@@ -176,26 +181,16 @@ export default function ProjectDetails() {
                                 href={project.githubback}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex justify-center items-center px-6 py-3 text-base font-medium rounded-lg shadow-sm text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-800"
+                                className="btn-primary flex items-center text-primary-300"
                             >
                                 <CodeBracketIcon className="w-5 h-5 mr-2" />
                                 Backend
                             </a>
                         )}
                     </div>
-
-                    <div className="mt-8 pt-6 border-t border-stone-700">
-                        <h3 className="text-sm font-medium text-stone-400 mb-4">Características principales</h3>
-                        <ul className="space-y-3">
-                            {project.functionalities.map((func: string, index: number) => (
-                                <li key={index} className="flex items-start">
-                                    <CheckIcon className="w-5 h-5 text-green-400 mr-3 mt-0.5 flex-shrink-0" />
-                                    <span className="text-stone-300">{func}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
                 </div>
+
+
 
                 <div className="mb-8 px-6">
                     <Link
@@ -204,7 +199,7 @@ export default function ProjectDetails() {
                     >
                         <ArrowLeftIcon className="w-5 h-5 mr-2 text-white" />
                         Volver a proyectos
-                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-primary-100 to-primary-200 transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                 </div>
             </div>

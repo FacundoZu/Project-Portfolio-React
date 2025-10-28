@@ -104,7 +104,7 @@ export default function Projects() {
                       return (
                         <motion.span
                           key={idx}
-                          className="inline-flex items-center gap-2 px-3 py-1 text-sm text-accent-100 bg-primary-100/10 text-primary-400 rounded-full border border-primary-200/20"
+                          className="tecnology"
                           initial={{ opacity: 0, y: 10 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.5, delay: idx * 0.1 }}
