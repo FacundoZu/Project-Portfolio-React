@@ -19,10 +19,10 @@ export default function Projects() {
   return (
     <div
       id="portfolio"
-      className="w-full min-h-screen text-white py-16 md:pb-0"
+      className="w-full text-white py-16"
     >
       <motion.div
-        className="text-center mb-12"
+        className="text-center"
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
