@@ -22,12 +22,11 @@ export default function Personal() {
                 className="absolute w-92 h-92 m-auto -inset-3.5 bg-linear-to-b from-primary-100 to-primary-200 rounded-lg blur-lg group-hover:blur-xl group-hover:opacity-100 transition"
               ></motion.div>
               <motion.img
-                src="../perfil_default.jpg"
+                src="../foto-web-5.png"
                 alt="Foto de perfil"
-                className="w-80 h-80 m-auto rounded-lg object-cover relative"
+                className="w-80 h-80 m-auto rounded-4xl object-cover relative"
                 initial={{ opacity: 0.5, y: 50, x: -15, rotate: 3 }}
                 whileInView={{ opacity: 1, y: 0, x: 0, rotate: 0}}
-                whileHover={{ scale: 1.05, rotate: 3 }}
                 transition={{
                   duration: 0.5,
                   ease: "easeInOut"
