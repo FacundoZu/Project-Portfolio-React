@@ -19,12 +19,12 @@ export default function Personal() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 0.6, scale: 1 }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
-                className="absolute w-92 h-92 m-auto -inset-3.5 bg-linear-to-b from-primary-100 to-primary-200 rounded-lg blur-lg group-hover:blur-xl group-hover:opacity-100 transition"
+                className="absolute w-90 h-90 m-auto -inset-3.5 bg-linear-to-b from-primary-100 to-primary-200 rounded-lg blur-lg group-hover:blur-xl group-hover:opacity-100 transition"
               ></motion.div>
               <motion.img
-                src="../foto-web-5.png"
+                src="../foto-web.png"
                 alt="Foto de perfil"
-                className="w-80 h-80 m-auto rounded-4xl object-cover relative"
+                className="w-80 h-80 p-4 m-auto rounded-4xl object-cover relative"
                 initial={{ opacity: 0.5, y: 50, x: -15, rotate: 3 }}
                 whileInView={{ opacity: 1, y: 0, x: 0, rotate: 0}}
                 transition={{
